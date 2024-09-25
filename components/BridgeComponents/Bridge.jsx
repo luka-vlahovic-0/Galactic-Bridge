@@ -1,4 +1,4 @@
-=import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { ChevronDownIcon } from "@heroicons/react/outline";
 import { coins } from "../../coins";
 import { chains } from "../../chains";
