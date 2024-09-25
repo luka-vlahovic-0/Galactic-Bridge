@@ -1,6 +1,3 @@
-import btcLogo from "./public/assets/btcLogo.png";
-import usdtLogo from "./public/assets/usdtLogo.png";
-
 export const coins = [
   {
     name: "ETH",

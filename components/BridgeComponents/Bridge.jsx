@@ -1,23 +1,22 @@
-// Importovanje potrebnih modula i fajlova
-import { useEffect, useState, useRef } from "react";
+=import { useEffect, useState, useRef } from "react";
 import { ChevronDownIcon } from "@heroicons/react/outline";
 import { coins } from "../../coins";
 import { chains } from "../../chains";
 import Image from "next/image";
-import astronaut from "../../public/assets/astronaut.png"; // Uveri se da je putanja ispravna
-import spaceship from "../../public/assets/spaceship.png"; // Uveri se da je putanja ispravna
+import astronaut from "../../public/assets/astronaut.png"; 
+import spaceship from "../../public/assets/spaceship.png"; 
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Bridge() {
-  // Stanja za selektovane coine i chainove
+  
   const [selectedCoin, setSelectedCoin] = useState(coins[0]);
   const [isCoinDropdownOpen, setIsCoinDropdownOpen] = useState(false);
   const [selectedChainFrom, setSelectedChainFrom] = useState(chains[0]);
-  const [selectedChainTo, setSelectedChainTo] = useState(chains[1]); // Promenjeno na chains[1]
+  const [selectedChainTo, setSelectedChainTo] = useState(chains[1]); 
   const [isChainDropdownOpenFrom, setIsChainDropdownOpenFrom] = useState(false);
   const [isChainDropdownOpenTo, setIsChainDropdownOpenTo] = useState(false);
-  const [amountFrom, setAmountFrom] = useState(""); // Stanje za prvi input
+  const [amountFrom, setAmountFrom] = useState(""); 
   const [amountTo, setAmountTo] = useState("0");
 
   const dropdownRefs = useRef({
@@ -26,12 +25,12 @@ export default function Bridge() {
     chainTo: null,
   });
 
-  // Filtriranje chain-ova za "To" dropdown
+ 
   const filteredChainsForTo = chains.filter(
     (chain) => chain.name !== selectedChainFrom.name
   );
 
-  // Filtriranje chain-ova za "From" dropdown
+
   const filteredChainsForFrom = chains.filter(
     (chain) => chain.name !== selectedChainTo.name
   );
@@ -39,14 +38,14 @@ export default function Bridge() {
   useEffect(() => {
     const parsedAmount = parseFloat(amountFrom);
     if (!isNaN(parsedAmount)) {
-      const reducedAmount = (parsedAmount * (1 - 0.173)).toFixed(2); // Smanjenje od 17.3%
+      const reducedAmount = (parsedAmount * (1 - 0.173)).toFixed(2);
       setAmountTo(reducedAmount);
     } else {
       setAmountTo("0");
     }
   }, [amountFrom]);
 
-  // Event listener za zatvaranje dropdown-a
+ 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
