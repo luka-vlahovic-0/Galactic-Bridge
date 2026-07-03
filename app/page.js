@@ -1,33 +1,17 @@
-
-import Footer from "@/components/BridgeComponents/Footer";
-import Navbar from "@/components/BridgeComponents/Navbar";
-import Image from "next/image";
-import craterBG from "../public/assets/kraterPozadina.png";
-import BridgeWrapper from "@/components/BridgeComponents/BridgeWrapper";
-
-export const metadata = {
-  title: "Galactic Bridge | Bridging Made Simple",
-  description:
-    "Seamlessly transfer your digital assets across multiple blockchains with Galactic Bridge, the ultimate solution for secure and efficient crypto bridging.",
-  icons: {
-    icon: "/assets/alienlogo.png",
-  },
-};
+import GalaxyBackground from "../components/GalaxyBackground";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import BridgeConsole from "../components/BridgeConsole";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen bg-[#28293d]">
+    <div className="relative flex min-h-screen flex-col">
+      <GalaxyBackground />
       <Navbar />
-      <BridgeWrapper/>
+      <main className="relative z-10 flex flex-1 items-center justify-center px-4 py-8">
+        <BridgeConsole />
+      </main>
       <Footer />
-      <div className="absolute bottom-0 left-0 w-full hidden lg:block">
-        <Image
-          src={craterBG}
-          alt="Pozadinska slika"
-          className="w-full object-cover h-96 z-[-1]"
-          draggable="false"
-        />
-      </div>
     </div>
   );
 }
